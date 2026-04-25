@@ -17,6 +17,8 @@ Implemented source files:
 
 Key design points:
 
+- A shared reliable-transfer foundation (`RDTPrimitiveCore`) is used by all three protocols.
+- This shared core provides the rdt mechanisms (checksum validation, sequence/ACK handling, send/receive primitives, and timeout clock support), and GBN/SR build on top of it.
 - Sequence numbers and ACK numbers are used for correctness and in-order delivery.
 - Timeouts trigger retransmissions:
     - RDT3.0: resend current packet.
