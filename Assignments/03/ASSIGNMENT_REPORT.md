@@ -135,41 +135,34 @@ Conclusion:
 
 ## 4) How to Run
 
-Follow these steps from Windows PowerShell:
+Follow these steps in any terminal (PowerShell, CMD, bash, zsh):
 
-1. Open PowerShell.
-2. Go to the project folder:
-
-```powershell
-cd e:/Amna-FAST/CN-A03
-```
-
+1. Open terminal in the project directory (the folder containing `run_lab.py`).
+2. Optional but recommended: activate your virtual environment.
 3. Run one protocol simulation (example: rdt3):
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol rdt3
+```bash
+python run_lab.py --protocol rdt3
 ```
 
-4. Wait for the simulation summary. A successful run ends with:
+If `python` does not work on Windows, use:
+
+```powershell
+py -3 run_lab.py --protocol rdt3
+```
+
+Successful execution ends with:
 
 ```text
 in_order_complete=True
 ```
 
-If you want to use your currently active Python instead of the full path, first activate venv:
-
-```powershell
-cd e:/Amna-FAST/CN-A03
-.\.venv\Scripts\Activate.ps1
-python run_lab.py --protocol rdt3
-```
-
 Quick commands for each protocol:
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol rdt3
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol gbn
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol sr
+```bash
+python run_lab.py --protocol rdt3
+python run_lab.py --protocol gbn
+python run_lab.py --protocol sr
 ```
 
 Main CLI options:
@@ -192,58 +185,58 @@ Main CLI options:
 
 ### No packet loss or corruption
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol rdt3 --count 8 --packet-size 8 --loss 0 --corrupt 0
+```bash
+python run_lab.py --protocol rdt3 --count 8 --packet-size 8 --loss 0 --corrupt 0
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol gbn --count 8 --packet-size 8 --window 4 --loss 0 --corrupt 0
+```bash
+python run_lab.py --protocol gbn --count 8 --packet-size 8 --window 4 --loss 0 --corrupt 0
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol sr --count 8 --packet-size 8 --window 4 --loss 0 --corrupt 0
+```bash
+python run_lab.py --protocol sr --count 8 --packet-size 8 --window 4 --loss 0 --corrupt 0
 ```
 
 ### Packet loss
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol rdt3 --count 8 --packet-size 8 --loss 0.25 --corrupt 0 --timeout 0.25 --max-ticks 15000
+```bash
+python run_lab.py --protocol rdt3 --count 8 --packet-size 8 --loss 0.25 --corrupt 0 --timeout 0.25 --max-ticks 15000
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol gbn --count 10 --packet-size 8 --window 4 --loss 0.2 --corrupt 0 --timeout 0.25 --max-ticks 30000
+```bash
+python run_lab.py --protocol gbn --count 10 --packet-size 8 --window 4 --loss 0.2 --corrupt 0 --timeout 0.25 --max-ticks 30000
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol sr --count 10 --packet-size 8 --window 4 --loss 0.2 --corrupt 0 --timeout 0.25 --max-ticks 30000
+```bash
+python run_lab.py --protocol sr --count 10 --packet-size 8 --window 4 --loss 0.2 --corrupt 0 --timeout 0.25 --max-ticks 30000
 ```
 
 ### Packet corruption
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol rdt3 --count 8 --packet-size 8 --loss 0 --corrupt 0.25 --timeout 0.25 --max-ticks 15000
+```bash
+python run_lab.py --protocol rdt3 --count 8 --packet-size 8 --loss 0 --corrupt 0.25 --timeout 0.25 --max-ticks 15000
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol gbn --count 10 --packet-size 8 --window 4 --loss 0 --corrupt 0.2 --timeout 0.25 --max-ticks 30000
+```bash
+python run_lab.py --protocol gbn --count 10 --packet-size 8 --window 4 --loss 0 --corrupt 0.2 --timeout 0.25 --max-ticks 30000
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol sr --count 10 --packet-size 8 --window 4 --loss 0 --corrupt 0.2 --timeout 0.25 --max-ticks 30000
+```bash
+python run_lab.py --protocol sr --count 10 --packet-size 8 --window 4 --loss 0 --corrupt 0.2 --timeout 0.25 --max-ticks 30000
 ```
 
 ### Delayed packets
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol rdt3 --count 6 --packet-size 8 --loss 0 --corrupt 0 --delay-min 0.2 --delay-max 0.35 --timeout 0.5
+```bash
+python run_lab.py --protocol rdt3 --count 6 --packet-size 8 --loss 0 --corrupt 0 --delay-min 0.2 --delay-max 0.35 --timeout 0.5
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol gbn --count 8 --packet-size 8 --window 4 --loss 0 --corrupt 0 --delay-min 0.2 --delay-max 0.35 --timeout 0.5
+```bash
+python run_lab.py --protocol gbn --count 8 --packet-size 8 --window 4 --loss 0 --corrupt 0 --delay-min 0.2 --delay-max 0.35 --timeout 0.5
 ```
 
-```powershell
-e:/Amna-FAST/CN-A03/.venv/Scripts/python.exe e:/Amna-FAST/CN-A03/run_lab.py --protocol sr --count 6 --packet-size 8 --window 4 --loss 0 --corrupt 0 --delay-min 0.1 --delay-max 0.15 --timeout 0.5
+```bash
+python run_lab.py --protocol sr --count 6 --packet-size 8 --window 4 --loss 0 --corrupt 0 --delay-min 0.1 --delay-max 0.15 --timeout 0.5
 ```
 
 Expected success indicator in output:
